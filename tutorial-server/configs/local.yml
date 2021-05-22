@@ -1,0 +1,25 @@
+server:
+  applicationConnectors:
+    - type: http
+      port: 10000
+  adminConnectors:
+    - type: http
+      port: 10001
+  applicationContextPath: /
+  requestLog:
+    appenders:
+      - type: console
+        timeZone: IST
+
+logging:
+  level: INFO
+  # Logger-specific levels.pay
+  loggers:
+    deprecation: ERROR
+    org.hibernate: ERROR
+
+  appenders:
+    - type: console
+      threshold: DEBUG
+      timeZone: IST
+      logFormat: "%(%-5level) [%date] %X{TRACE-ID} [%thread] [%logger{0}]: %message%n"
